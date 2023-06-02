@@ -1,0 +1,49 @@
+# Generated with JReleaser 1.7.0-SNAPSHOT at 2023-06-02T05:59:45.932074988Z
+name: riot
+version: "3.0.1"
+summary: Get data in and out of Redis with RIOT
+description: |
+  RIOT is a series of command-line utilities designed to help you get data in and out of Redis.
+  
+  It supports many different sources and targets:
+   - Relational databases
+   - Files (CSV, JSON, XML)
+   - Data generators (Redis data structures, Faker)
+   - and Redis itself with live and/or snapshot replication.
+
+grade: stable
+confinement: strict
+base: core18
+type: app
+
+architectures:
+  - build-on: [amd64, arm64]
+    
+    
+apps:
+  riot:
+    command: bin/riot
+    environment:
+      JAVA_HOME: "$SNAP/usr/lib/jvm/java"
+      PATH: "$SNAP/bin:$PATH:$JAVA_HOME/bin"
+    plugs:
+      - network
+      - home
+
+plugs:
+  dot-config-files:
+    interface: personal-files
+parts:
+  riot:
+    plugin: dump
+    source: https://github.com/redis-developer/riot/releases/download/v3.0.1/riot-3.0.1.tar
+    source-checksum: sha256/b3cce63735e1f60347f23f223d6ce2385a186e208d87c7505e539dbb6fd82c90
+    stage-packages:
+      - curl
+      - openjdk-8-jre
+      - ca-certificates
+      - ca-certificates-java
+    organize:
+      'usr/lib/jvm/java-*': 'usr/lib/jvm/java'
+    prime:
+      - -usr/lib/jvm/java/lib/security/cacerts
