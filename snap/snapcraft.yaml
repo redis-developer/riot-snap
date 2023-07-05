@@ -1,6 +1,6 @@
-# Generated with JReleaser 1.8.0-SNAPSHOT at 2023-07-03T07:40:52.34747229Z
+# Generated with JReleaser 1.8.0-SNAPSHOT at 2023-07-05T23:49:08.84095428Z
 name: riot
-version: "3.1.1"
+version: "3.1.2"
 summary: Get data in and out of Redis with RIOT
 description: |
   RIOT is a series of command-line utilities designed to help you get data in and out of Redis.
@@ -36,8 +36,8 @@ plugs:
 parts:
   riot:
     plugin: dump
-    source: https://github.com/redis-developer/riot/releases/download/v3.1.1/riot-3.1.1.tar
-    source-checksum: sha256/4eb254f96f471c1e3bd83ebeceaa6c360f23ad5f4b92be95e5ba9f7c67f469bc
+    source: https://github.com/redis-developer/riot/releases/download/v3.1.2/riot-3.1.2.tar
+    source-checksum: sha256/e1c6dfd9cb96b6f1652517ba6c2d2fb7efbe37667c2860b787d9bb9a9c82f5bb
     stage-packages:
       - curl
       - openjdk-17-jre
